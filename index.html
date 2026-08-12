@@ -24,7 +24,6 @@
   .wrap{max-width:880px; margin:0 auto; padding:56px 22px 72px}
   .num{font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1}
 
-  /* ── 헤더 ── */
   .eyebrow{
     font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
     color:var(--accent); font-weight:600; margin:0 0 16px;
@@ -45,18 +44,14 @@
   .sec-sub{color:var(--ink-soft); font-size:15.5px; margin:0 0 22px; max-width:64ch; text-wrap:pretty}
   .panel{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; box-shadow:var(--shadow)}
 
-  /* ── KPI ── */
   .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
   @media (max-width:640px){.kpis{grid-template-columns:1fr}}
   .kpi{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px 18px 16px; box-shadow:var(--shadow)}
-  .kpi.self{border-color:var(--accent); background:var(--accent-tint)}
   .kpi .k{font-family:var(--mono); font-size:11.5px; letter-spacing:.05em; color:var(--muted); margin-bottom:10px; text-transform:uppercase}
-  .kpi.self .k{color:var(--accent)}
   .kpi .v{font-size:clamp(26px,4vw,33px); font-weight:800; letter-spacing:-.03em; line-height:1}
   .kpi .v small{font-size:14px; font-weight:600; letter-spacing:0}
   .kpi .d{font-size:13px; color:var(--ink-soft); margin-top:10px}
 
-  /* ── 슬로프 차트 ── */
   .chart-head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:6px; flex-wrap:wrap}
   .legend{display:flex; gap:16px; font-size:12.5px; color:var(--ink-soft); flex-wrap:wrap}
   .legend span{display:inline-flex; align-items:center; gap:7px}
@@ -64,21 +59,18 @@
   .chart-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
   svg.slope{display:block; width:100%; min-width:560px; height:auto}
   svg.slope .grid{stroke:var(--line); stroke-width:1}
-  svg.slope .zero{stroke:var(--line); stroke-width:1.5; stroke-dasharray:none}
+  svg.slope .zero{stroke:var(--line); stroke-width:1.5}
   svg.slope .axtxt{fill:var(--muted); font-family:var(--mono); font-size:11px}
   svg.slope .coltxt{fill:var(--ink-soft); font-family:var(--mono); font-size:11.5px; letter-spacing:.06em; text-transform:uppercase}
   svg.slope .lbl{fill:var(--ink-soft); font-size:12.5px; font-family:var(--sans)}
-  svg.slope g.s{cursor:default}
   svg.slope g.s line.ln{stroke:var(--series); stroke-width:2; stroke-linecap:round; opacity:.5}
   svg.slope g.s circle{fill:var(--series); r:4; opacity:.6; stroke:var(--panel); stroke-width:2}
-  svg.slope g.s.self line.ln{stroke:var(--accent); stroke-width:3.5; opacity:1}
-  svg.slope g.s.self circle{fill:var(--accent); r:5.5; opacity:1}
-  svg.slope g.s.self text.lbl{fill:var(--accent); font-weight:750}
+  svg.slope g.s.hot line.ln{stroke:var(--accent); stroke-width:3.5; opacity:1}
+  svg.slope g.s.hot circle{fill:var(--accent); r:5.5; opacity:1}
+  svg.slope g.s.hot text.lbl{fill:var(--accent); font-weight:750}
   svg.slope g.s:hover line.ln{stroke:var(--ink); opacity:1; stroke-width:3}
   svg.slope g.s:hover circle{fill:var(--ink); opacity:1}
   svg.slope g.s:hover text.lbl{fill:var(--ink); font-weight:700}
-  svg.slope g.s.self:hover line.ln, svg.slope g.s.self:hover circle{stroke:var(--accent); fill:var(--accent)}
-  svg.slope g.s.self:hover line.ln{stroke:var(--accent)}
   .tip{
     position:fixed; pointer-events:none; z-index:20; opacity:0; transition:opacity .1s;
     background:var(--ink); color:#fff; border-radius:8px; padding:9px 11px; font-size:12.5px; line-height:1.5;
@@ -87,7 +79,6 @@
   .tip b{display:block; font-size:13.5px; margin-bottom:3px}
   .tip .r{color:#cdd3db; font-family:var(--mono); font-size:11.5px}
 
-  /* ── 랭킹 표 ── */
   .tbl-scroll{overflow-x:auto}
   table{width:100%; border-collapse:collapse; min-width:620px; font-size:14px}
   thead th{
@@ -98,13 +89,9 @@
   tbody td{padding:9px 10px; border-bottom:1px solid var(--line-soft); text-align:right; vertical-align:middle}
   tbody td:nth-child(1){text-align:right; color:var(--muted); font-size:12px; width:30px}
   tbody td:nth-child(2){text-align:left; font-weight:650}
-  tbody tr.self{background:var(--accent-tint)}
-  tbody tr.self td:nth-child(2){color:var(--accent)}
   tbody tr:hover{background:var(--panel-2)}
-  tbody tr.self:hover{background:var(--accent-tint)}
   .bar{position:relative; height:8px; width:100%; min-width:70px; background:var(--line-soft); border-radius:99px; overflow:hidden}
   .bar i{position:absolute; inset:0 auto 0 0; background:var(--series-soft); border-radius:99px}
-  tr.self .bar i{background:var(--accent)}
   td.barcell{width:110px}
   .chip{
     display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:650;
@@ -117,7 +104,6 @@
   .sr{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
   .pos{color:var(--up); font-weight:700} .neg{color:var(--down); font-weight:700} .zer{color:var(--muted); font-weight:600}
 
-  /* ── 해석 카드 ── */
   .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px}
   .card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px; box-shadow:var(--shadow)}
   .card .ct{font-weight:750; font-size:15px; margin-bottom:4px}
@@ -125,7 +111,6 @@
   .card .cv{font-size:24px; font-weight:800; letter-spacing:-.02em; line-height:1}
   .card .cd{font-size:13.5px; color:var(--ink-soft); margin-top:11px; border-top:1px solid var(--line-soft); padding-top:11px}
 
-  /* ── 액션 ── */
   .acts{display:flex; flex-direction:column; gap:10px}
   .act{display:flex; gap:14px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:15px 17px; box-shadow:var(--shadow)}
   .act .m{color:var(--accent); font-weight:800; flex:none; font-family:var(--mono); font-size:13px; padding-top:2px}
@@ -135,7 +120,6 @@
   .note b{color:var(--ink)}
   footer{margin-top:56px; border-top:1px solid var(--line); padding-top:20px; font-size:12.5px; color:var(--muted); line-height:1.75}
   footer b{color:var(--ink-soft); font-weight:600}
-  a{color:var(--accent)}
   :focus-visible{outline:2px solid var(--accent); outline-offset:2px; border-radius:4px}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -143,8 +127,8 @@
 <div class="wrap">
   <header>
     <p class="eyebrow">건강기능식품 · 브랜드 검색 감시</p>
-    <h1>여름 바닥을 지나 카테고리가 반등했다 — 자사만 아직 마이너스</h1>
-    <p class="lede">3주 전엔 건기식 경쟁 브랜드 18곳이 <b>다 같이 빠졌습니다</b>. 지금은 12곳이 플러스로 돌아섰습니다. 반등 국면에서야 보이는 건 <b>누가 못 따라 올라오는가</b>이고, 자사는 아직 그쪽입니다.</p>
+    <h1>여름 바닥을 지나 브랜드 검색이 반등했다 — 다만 아직 되돌림이다</h1>
+    <p class="lede">3주 전엔 건기식 브랜드 17곳이 <b>한 곳도 빠짐없이 하락</b>이었습니다. 지금은 12곳이 플러스로 돌아섰습니다. 그런데 월간 검색 볼륨이 3주 전 수준을 넘은 곳은 <b>5곳뿐</b>입니다. 방향은 바뀌었지만 크기는 아직 회복되지 않았습니다.</p>
     <div class="meta">
       <span><b>브랜드검색</b> 월간(네이버 키워드도구)</span>
       <span><b>추세</b> 최근7일 대 직전4주(데이터랩)</span>
@@ -155,37 +139,37 @@
 
   <section aria-label="핵심 지표">
     <div class="kpis">
-      <div class="kpi self">
-        <div class="k">자사 브랜드검색</div>
-        <div class="v num">11,720<small> /월</small></div>
-        <div class="d">카테고리 13위 · 추세 <b class="neg">−6%</b> (3주 전 −16%)</div>
-      </div>
       <div class="kpi">
         <div class="k">카테고리 추세 중앙값</div>
-        <div class="v num pos">+6%</div>
-        <div class="d">3주 전 <b class="neg">−15%</b> → 반등 전환</div>
+        <div class="v num pos">+7%</div>
+        <div class="d">3주 전 <b class="neg">−12%</b> → 반등 전환</div>
       </div>
       <div class="kpi">
-        <div class="k">추세 플러스 브랜드</div>
-        <div class="v num">12<small> / 18곳</small></div>
-        <div class="d">3주 전엔 <b>0곳</b>(정관장 0% 제외 전원 하락)</div>
+        <div class="k">추세가 플러스인 브랜드</div>
+        <div class="v num">12<small> / 17곳</small></div>
+        <div class="d">3주 전엔 <b>0곳</b> (보합 1곳 외 전원 하락)</div>
+      </div>
+      <div class="kpi">
+        <div class="k">볼륨까지 회복한 브랜드</div>
+        <div class="v num">5<small> / 17곳</small></div>
+        <div class="d">월 검색량이 3주 전을 넘은 곳. <b>나머지는 되돌림 단계</b></div>
       </div>
     </div>
   </section>
 
   <section>
     <h2>3주 만에 뒤집힌 추세</h2>
-    <p class="sec-sub">왼쪽이 7월 21일 집계, 오른쪽이 8월 11일 집계의 <b>주간 검색추세</b>입니다. 선이 위로 향하면 여름 저점에서 회복 중이라는 뜻입니다. 거의 모든 선이 0% 위로 올라섰고, 자사는 0% 아래에 남았습니다.</p>
+    <p class="sec-sub">왼쪽이 7월 21일 집계, 오른쪽이 8월 11일 집계의 <b>주간 검색추세</b>입니다. 선이 위로 향하면 여름 저점에서 회복 중이라는 뜻입니다. 거의 모든 선이 0% 위로 올라섰고, 특히 <b>7월에 가장 깊게 빠졌던 두 브랜드가 가장 크게 튀었습니다</b>.</p>
     <div class="panel">
       <div class="chart-head">
         <div class="legend">
-          <span><i style="background:#1a56db"></i>자사</span>
-          <span><i style="background:#707a86;opacity:.55"></i>경쟁 브랜드 17곳</span>
+          <span><i style="background:#1a56db"></i>급반등 2곳</span>
+          <span><i style="background:#707a86;opacity:.55"></i>나머지 15곳</span>
         </div>
       </div>
       <div class="chart-scroll">
         <svg class="slope" id="slope" viewBox="0 0 880 520" role="img"
-             aria-label="7월 21일 대비 8월 11일 주간 검색추세 변화 슬로프 차트. 18개 브랜드 중 12곳이 플러스로 전환, 자사는 -16%에서 -6%로 올랐으나 여전히 마이너스."></svg>
+             aria-label="7월 21일 대비 8월 11일 주간 검색추세 변화 슬로프 차트. 17개 브랜드 중 12곳이 플러스로 전환했고, 여에스더와 프롬바이오가 각각 +113%, +101%로 가장 크게 반등했다."></svg>
       </div>
       <p style="font-size:12.5px;color:var(--muted);margin:14px 0 0">선에 마우스를 올리면 브랜드별 수치가 보입니다. 아래 표에 같은 값이 모두 있습니다.</p>
     </div>
@@ -211,8 +195,8 @@
   </section>
 
   <section>
-    <h2>반등이지만, 볼륨은 아직 안 따라왔다</h2>
-    <p class="sec-sub">주간 추세가 크게 뛴 브랜드도 월간 볼륨은 3주 전보다 낮습니다. 즉 지금 잡히는 플러스는 <b>여름 급락분의 되돌림</b>이지 아직 성장이 아닙니다. 되돌림과 진짜 성장을 가르는 건 다음 2~3주입니다.</p>
+    <h2>되돌림인가, 성장인가</h2>
+    <p class="sec-sub">주간 추세가 크게 뛴 브랜드도 월간 볼륨은 3주 전보다 낮습니다. 즉 지금 잡히는 플러스 대부분은 <b>여름 급락분의 되돌림</b>이지 아직 성장이 아닙니다. 둘을 가르는 건 다음 2~3주의 볼륨입니다.</p>
     <div class="cards">
       <div class="card">
         <div class="ct">여에스더</div>
@@ -233,28 +217,28 @@
         <div class="cd">두 지표가 같이 오른 유일한 대형 브랜드. 되돌림이 아니라 볼륨 자체가 커졌습니다.</div>
       </div>
       <div class="card">
-        <div class="ct">자사</div>
-        <div class="cq">추세 −6% / 볼륨 −9%</div>
+        <div class="ct">락토핏</div>
+        <div class="cq">추세 −7% / 볼륨 −14%</div>
         <div class="cv neg">지속 약세</div>
-        <div class="cd">카테고리가 +6%로 반등하는 동안 두 지표 모두 마이너스. 카테고리 대비 <b>12%p 뒤처집니다</b>.</div>
+        <div class="cd">카테고리가 반등하는 동안 두 지표 모두 마이너스. 7월(−4%)보다 오히려 나빠졌습니다.</div>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>액션</h2>
+    <h2>다음에 확인할 것</h2>
     <div class="acts">
       <div class="act"><span class="m">01</span><div>
-        <div class="at">반등 국면에 브랜드 검색 방어를 붙인다</div>
-        <div class="ad">카테고리 수요가 돌아오는 지금이 브랜드명 검색을 태우기 가장 싼 구간입니다. 자사 −6%는 수요 탓이 아니라 노출 탓일 가능성이 큽니다 — 브랜드 검색광고·검색 방어 예산 재점검.</div>
+        <div class="at">2~3주 뒤 볼륨으로 되돌림과 성장을 가른다</div>
+        <div class="ad">지금의 플러스가 진짜인지는 월간 볼륨이 3주 전 수준을 넘느냐로 갈립니다. 주간 추세만 보면 반등을 과대평가하게 됩니다.</div>
       </div></div>
       <div class="act"><span class="m">02</span><div>
-        <div class="at">되돌림 브랜드 2곳의 원인을 역추적한다</div>
-        <div class="ad">여에스더(+113%)·프롬바이오(+101%)의 반등 시점 전후로 방송·프로모션이 있었는지 확인. 같은 레버가 우리에게 있는지가 실질 과제입니다.</div>
+        <div class="at">급반등 2곳의 원인을 역추적한다</div>
+        <div class="ad">여에스더(+113%)·프롬바이오(+101%)의 반등 시점 전후에 방송·프로모션이 있었는지 확인하면, 검색 급등이 마케팅 투입의 결과인지 자연 회복인지 구분됩니다.</div>
       </div></div>
       <div class="act"><span class="m">03</span><div>
-        <div class="at">2~3주 뒤 볼륨으로 재검증한다</div>
-        <div class="ad">지금의 플러스가 되돌림인지 성장인지는 월간 볼륨이 3주 전 수준을 넘느냐로 갈립니다. 주간 자동 감시(<span style="font-family:var(--mono);font-size:12.5px">competitor_watch</span>)가 매주 같은 표를 남기므로 다음 집계에서 바로 확인 가능합니다.</div>
+        <div class="at">역주행 브랜드를 따로 본다</div>
+        <div class="ad">카테고리가 반등하는데 두 지표 모두 마이너스인 브랜드(락토핏·안국건강·헬스밸런스)는 계절 요인이 아닌 다른 원인이 있다는 뜻입니다.</div>
       </div></div>
     </div>
   </section>
@@ -271,24 +255,23 @@
 <script>
   // n=브랜드, s=월검색량(8/11), c=주간추세(8/11), s0=월검색량(7/21), c0=주간추세(7/21)
   const DATA = [
-    {n:"유한양행",    s:204600, c:14,  s0:179300, c0:-33},
-    {n:"여에스더",    s:109200, c:113, s0:127800, c0:-34},
-    {n:"정관장",      s:100200, c:6,   s0:94900,  c0:0},
-    {n:"고려은단",    s:55300,  c:15,  s0:55300,  c0:-11},
-    {n:"뉴트리코어",  s:45000,  c:1,   s0:47320,  c0:-11},
-    {n:"센트룸",      s:29040,  c:13,  s0:29430,  c0:-14},
-    {n:"락토핏",      s:24880,  c:-7,  s0:28910,  c0:-4},
-    {n:"에버콜라겐",  s:24010,  c:0,   s0:25220,  c0:-7},
-    {n:"하이뮨",      s:16020,  c:10,  s0:16080,  c0:-7},
-    {n:"덴프스",      s:14810,  c:6,   s0:15350,  c0:-12},
-    {n:"프롬바이오",  s:13850,  c:101, s0:17090,  c0:-38},
-    {n:"종근당건강",  s:12040,  c:-1,  s0:12430,  c0:-7},
-    {n:"자사",    s:11720,  c:-6,  s0:12850,  c0:-16, self:true},
-    {n:"GNM자연의품격",s:10520, c:17,  s0:10190,  c0:-10},
-    {n:"안국건강",    s:5970,   c:-4,  s0:6700,   c0:-22},
-    {n:"뉴트리디데이",s:5490,   c:7,   s0:5130,   c0:-15},
-    {n:"오마코",      s:1500,   c:15,  s0:1540,   c0:-17},
-    {n:"헬스밸런스",  s:510,    c:-8,  s0:400,    c0:-14}
+    {n:"유한양행",     s:204600, c:14,  s0:179300, c0:-33},
+    {n:"여에스더",     s:109200, c:113, s0:127800, c0:-34, hot:true},
+    {n:"정관장",       s:100200, c:6,   s0:94900,  c0:0},
+    {n:"고려은단",     s:55300,  c:15,  s0:55300,  c0:-11},
+    {n:"뉴트리코어",   s:45000,  c:1,   s0:47320,  c0:-11},
+    {n:"센트룸",       s:29040,  c:13,  s0:29430,  c0:-14},
+    {n:"락토핏",       s:24880,  c:-7,  s0:28910,  c0:-4},
+    {n:"에버콜라겐",   s:24010,  c:0,   s0:25220,  c0:-7},
+    {n:"하이뮨",       s:16020,  c:10,  s0:16080,  c0:-7},
+    {n:"덴프스",       s:14810,  c:6,   s0:15350,  c0:-12},
+    {n:"프롬바이오",   s:13850,  c:101, s0:17090,  c0:-38, hot:true},
+    {n:"종근당건강",   s:12040,  c:-1,  s0:12430,  c0:-7},
+    {n:"GNM자연의품격",s:10520,  c:17,  s0:10190,  c0:-10},
+    {n:"안국건강",     s:5970,   c:-4,  s0:6700,   c0:-22},
+    {n:"뉴트리디데이", s:5490,   c:7,   s0:5130,   c0:-15},
+    {n:"오마코",       s:1500,   c:15,  s0:1540,   c0:-17},
+    {n:"헬스밸런스",   s:510,    c:-8,  s0:400,    c0:-14}
   ];
   const pct = (a, b) => Math.round((a - b) / b * 1000) / 10;   // 3주 전 대비 볼륨 변화율
   const sgn = v => (v > 0 ? "+" : "") + v;
@@ -301,10 +284,9 @@
     const vol = pct(d.s, d.s0);
     const st = d.c >= 10 ? ["up", "반등"] : d.c > 0 ? ["mild", "회복"] : d.c === 0 ? ["flat", "보합"] : ["down", "약세"];
     const tr = document.createElement("tr");
-    if (d.self) tr.className = "self";
     tr.innerHTML =
       '<td class="num">' + (i + 1) + '</td>' +
-      '<td>' + d.n + (d.self ? ' <span class="chip" style="background:#1a56db;color:#fff">자사</span>' : '') + '</td>' +
+      '<td>' + d.n + '</td>' +
       '<td class="barcell"><div class="bar"><i style="width:' + Math.max(2, d.s / maxS * 100).toFixed(1) + '%"></i></div></td>' +
       '<td class="num">' + d.s.toLocaleString() + '</td>' +
       '<td class="num ' + cls(vol) + '">' + sgn(vol) + '%</td>' +
@@ -335,22 +317,22 @@
   svg.appendChild(el("text", {x: xA, y: 16, class: "coltxt", "text-anchor": "middle"}, "7월 21일"));
   svg.appendChild(el("text", {x: xB, y: 16, class: "coltxt", "text-anchor": "middle"}, "8월 11일"));
 
-  // 우측 라벨 겹침 해소 — y 정렬 후 최소 간격만큼 아래로 밀어냄
+  // 우측 라벨 겹침 해소 — y 정렬 후 최소 간격만큼 아래로 밀고, 넘치면 위로 되민다
   const GAP = 15.5;
   const lab = DATA.map(d => ({d, y: Y(d.c)})).sort((a, b) => a.y - b.y);
-  for (let i = 1; i < lab.length; i++)                       // 아래로 밀기
+  for (let i = 1; i < lab.length; i++)
     if (lab[i].y - lab[i - 1].y < GAP) lab[i].y = lab[i - 1].y + GAP;
   const yBot = H - mB, yTop = mT;
-  if (lab[lab.length - 1].y > yBot) {                        // 넘치면 위쪽으로 되밀되
+  if (lab[lab.length - 1].y > yBot) {
     lab[lab.length - 1].y = yBot;
-    for (let i = lab.length - 2; i >= 0; i--)                // 상단 경계는 넘지 않게
+    for (let i = lab.length - 2; i >= 0; i--)
       if (lab[i + 1].y - lab[i].y < GAP) lab[i].y = Math.max(yTop, lab[i + 1].y - GAP);
   }
 
   const tip = document.getElementById("tip");
   lab.forEach(({d, y: ly}) => {
     const yA = Y(d.c0), yB = Y(d.c);
-    const g = el("g", {class: "s" + (d.self ? " self" : ""), tabindex: "0",
+    const g = el("g", {class: "s" + (d.hot ? " hot" : ""), tabindex: "0",
       "aria-label": d.n + " 7월 21일 " + sgn(d.c0) + "%에서 8월 11일 " + sgn(d.c) + "%"});
     g.appendChild(el("line", {class: "ln", x1: xA, y1: yA, x2: xB, y2: yB}));
     g.appendChild(el("circle", {cx: xA, cy: yA}));
@@ -368,7 +350,7 @@
     };
     g.addEventListener("mousemove", show);
     g.addEventListener("mouseleave", () => tip.style.opacity = 0);
-    g.addEventListener("focus", e => {
+    g.addEventListener("focus", () => {
       const r = g.getBoundingClientRect();
       show({clientX: r.right, clientY: r.top});
     });
